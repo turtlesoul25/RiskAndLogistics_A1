@@ -1,11 +1,11 @@
 model "The 3-Echelon Multi-period Warehouse Location Problem with Uncertainty"
 uses "mmsystem", "mmjobs", "mmxprs", "mmxnlp"
-setparam("XPRS_VERBOSE", true)
+! setparam("XPRS_VERBOSE", true)
 
 ! ============================================================================
 ! Reading problem parameters
 ! ============================================================================
-filename := "CaseStudyData.txt";
+filename := "CaseStudyData_Aggregated.txt";
 
 declarations
   ! Number of customers
@@ -160,31 +160,31 @@ forall(j in Candidates, i in Customers)
 
 !Binary constraints
 
-forall (can in Candidates, per in Periods, supl in Suppliers)  do
-  y(can, per) is_binary
-  z(can, supl, per) is_integer
+forall (j in Candidates, per in Periods, supl in Suppliers)  do
+  y(j, per) is_binary
+  z(j, supl, per) is_integer
 end-do
 
 !Constraints
-forall(cust in Customers, can in Candidates, per in Periods, pro in Products) do
-  one(cust, can, per, pro) := x(cust, can, per, pro) <= y(can, per)
+forall(i in Customers, j in Candidates, per in Periods, pro in Products) do
+  one(i, j, per, pro) := x(i, j, per, pro) <= y(j, per)
 end-do
 
-forall (cust in Customers, per in Periods, pro in Products) do
-  two(cust, per, pro) := sum (can in Candidates) x(cust, can, per, pro) = 1
+forall (i in Customers, per in Periods, pro in Products) do
+  two(i, per, pro) := sum (j in Candidates) x(i, j, per, pro) = 1
 end-do
 
 forall (supl in Suppliers, per in Periods) do
-  three(supl, per) := sum(can in Candidates) z(can, supl, per) <= SupplierCapacity(supl)
+  three(supl, per) := sum(j in Candidates) z(j, supl, per) <= SupplierCapacity(supl)
 end-do
 
-forall (can in Candidates, supl in Suppliers, per in Periods) do
-  four(can, supl, per) := z(can, supl, per) <= SupplierCapacity(supl)*y(can, per)
+forall (j in Candidates, supl in Suppliers, per in Periods) do
+  four(j, supl, per) := z(j, supl, per) <= SupplierCapacity(supl)*y(j, per)
 end-do
 
-forall (per in Periods, can in Candidates) do
+forall (per in Periods, j in Candidates) do
   if per > 1 then
-    five(per, can) := y(can, per) >= fmax(0, y(can, per-1))
+    five(per, j) := y(j, per) >= fmax(0, y(j, per-1))
   end-if
 end-do
 
@@ -195,27 +195,46 @@ end-do
 ! ==================================================================================================
 
 !costs of warehouse (setup + operation)
-forall (can in Candidates) do
-  SetupCostPerWH(can) := fmin(1, sum(per in Periods) y(can, per))*Setup(can)
-  OperationalCostPerWH(can) := sum(per in Periods) y(can, per)*Operating(can)
+forall (j in Candidates) do
+  ! if sum(per in Periods) getsol(y(j, per)) > 0 then 
+  !   SetupCostPerWH(j) := Setup(j)
+  ! elif sum(per in Periods) getsol(y(j, per)) = 0 then
+  !   SetupCostPerWH(j) := 0
+  ! end-if
+  SetupCostPerWH(j) := fmin(1, sum(per in Periods) getsol(y(j, per)))*Setup(j)
+  OperationalCostPerWH(j) := sum(per in Periods) getsol(y(j, per))*Operating(j)
 end-do
 
-TotalSetupCost := sum(can in Candidates) SetupCostPerWH(can)
-TotalOperationCostofWH := sum(can in Candidates) OperationalCostPerWH(can)
+TotalSetupCost := sum(j in Candidates) SetupCostPerWH(j)
+TotalOperationCostofWH := sum(j in Candidates) OperationalCostPerWH(j)
 
 !Transports costs
-TotalSuppliersCost := sum(sup in Suppliers, can in Candidates, per in Periods) z(can, sup, per)*CostCandidateSupplier(can, sup)
-
-TotalCustomerDeliveryCost := sum(cust in Customers, can in Candidates, per in Periods, pro in Products) CostCandidateCustomers(can, cust)*x(cust, can, per, pro)*DemandPeriods(cust, pro, per)
+TotalSuppliersCost := sum(sup in Suppliers, j in Candidates, per in Periods) getsol(z(j, sup, per))*CostCandidateSupplier(j, sup)
+TotalCustomerDeliveryCost := sum(i in Customers, j in Candidates, per in Periods, pro in Products) CostCandidateCustomers(j, i)*getsol(x(i, j, per, pro))*DemandPeriods(i, pro, per)
 
 TotalCost := TotalSetupCost + TotalOperationCostofWH + TotalSuppliersCost + TotalCustomerDeliveryCost
 
 minimise(TotalCost)
 
 
-! ==================================================================================================
-! Results
-! ==================================================================================================
+end_time := gettime
+! ============================================================================
+! Print the results
+! ============================================================================
+write("Selected Locations: ")
+forall(j in Candidates, per in Periods | getsol(y(j, per)) > 0.001)
+  write(j, " ")
+writeln; writeln
 
-writeln("TotalCost: ", getobjval)
+writeln("Allocations: ")
+forall(i in Customers) do
+  forall(j in Candidates | getsol(x(i,j)) > 0.001) do
+    writeln(i, " -> ", j, ": ", 100*getsol(x(i,j)), '%')
+  end-do
+end-do
+writeln; writeln
+
+writeln("Setup costs: ", sum(j in Candidates) Setup(j)*y(j).sol)
+writeln("Transportation costs: ", sum(i in Customers, j in Candidates) Cost(i,j)*x(i,j).sol)
+writeln("Total costs: ", getobjval)
 end-model
