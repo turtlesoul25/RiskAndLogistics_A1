@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 343,
+        "@height": 153,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -40,7 +40,7 @@
                         "output": {
                             "id": "output754070",
                             "width": 968,
-                            "height": 311,
+                            "height": 121,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CaseStudy.mos",
@@ -60,18 +60,18 @@
     },
     "ext": {
         "counters": {
-            "@ace": 1,
-            "@acestatus": 1,
+            "@ace": 2,
+            "@acestatus": 2,
             "@base-step-wizard": 2,
             "@divider": 4,
             "@document": 4,
-            "@editorswitch": 1,
+            "@editorswitch": 2,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
             "@form": 4,
             "@menu": 3,
             "@menuitem": 8,
-            "@pane": 2,
+            "@pane": 3,
             "@session": 4,
             "@tab": 4,
             "@undoManager": 4,
@@ -105,6 +105,7 @@
     },
     "panecycle": {
         "json()": [
+            "tab3",
             "tab1",
             "tab2"
         ]
@@ -184,82 +185,100 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/CaseStudy.mos",
-            "meta": {
-                "accessList": [
-                    "tab1",
-                    "tab3",
-                    "tab0"
-                ]
-            },
-            "name": "pane0",
+            "focus": "/CaseStudyData_Aggregated.txt",
             "nodes": [
                 {
-                    "type": "tab",
-                    "name": "tab0",
-                    "path": "",
-                    "className": [
-                        "tab0"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "welcome": true,
-                            "newOnError": true,
-                            "timestamp": 1707238345268
+                    "type": "pane",
+                    "name": "pane0",
+                    "nodes": [
+                        {
+                            "type": "tab",
+                            "name": "tab0",
+                            "path": "",
+                            "className": [
+                                "tab0"
+                            ],
+                            "document": {
+                                "changed": false,
+                                "meta": {
+                                    "welcome": true,
+                                    "newOnError": true,
+                                    "timestamp": 1707238345268
+                                },
+                                "filter": true,
+                                "title": "Welcome",
+                                "welcome": {}
+                            },
+                            "editorType": "welcome",
+                            "active": false
                         },
-                        "filter": true,
-                        "title": "Welcome",
-                        "welcome": {}
-                    },
-                    "editorType": "welcome",
-                    "active": false
+                        {
+                            "type": "tab",
+                            "name": "tab1",
+                            "path": "/CaseStudy.mos",
+                            "className": [
+                                "tab1"
+                            ],
+                            "document": {
+                                "changed": false,
+                                "meta": {
+                                    "timestamp": 1707305535936
+                                },
+                                "filter": true,
+                                "title": "CaseStudy.mos",
+                                "tooltip": "/CaseStudy.mos",
+                                "ace": {}
+                            },
+                            "editorType": "ace",
+                            "active": true
+                        }
+                    ],
+                    "skin": "editor_tab",
+                    "skinset": "default",
+                    "meta": {
+                        "accessList": [
+                            "tab0",
+                            "tab1"
+                        ]
+                    }
                 },
                 {
-                    "type": "tab",
-                    "name": "tab1",
-                    "path": "/CaseStudy.mos",
-                    "className": [
-                        "tab1",
-                        "focus"
+                    "type": "pane",
+                    "name": "pane2",
+                    "nodes": [
+                        {
+                            "type": "tab",
+                            "name": "tab3",
+                            "path": "/CaseStudyData_Aggregated.txt",
+                            "className": [
+                                "tab3",
+                                "focus"
+                            ],
+                            "document": {
+                                "changed": false,
+                                "meta": {
+                                    "timestamp": 1707248865500
+                                },
+                                "filter": true,
+                                "title": "CaseStudyData_Aggregated.txt",
+                                "tooltip": "/CaseStudyData_Aggregated.txt",
+                                "ace": {}
+                            },
+                            "editorType": "ace",
+                            "active": true
+                        }
                     ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707263715341
-                        },
-                        "filter": true,
-                        "title": "CaseStudy.mos",
-                        "tooltip": "/CaseStudy.mos",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": true
-                },
-                {
-                    "type": "tab",
-                    "name": "tab3",
-                    "path": "/CaseStudyData_Aggregated.txt",
-                    "className": [
-                        "tab3"
-                    ],
-                    "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707248865500
-                        },
-                        "filter": true,
-                        "title": "CaseStudyData_Aggregated.txt",
-                        "tooltip": "/CaseStudyData_Aggregated.txt",
-                        "ace": {}
-                    },
-                    "editorType": "ace",
-                    "active": false
+                    "width": "50%",
+                    "skin": "editor_tab",
+                    "skinset": "default",
+                    "meta": {
+                        "accessList": [
+                            "tab3"
+                        ]
+                    }
                 }
             ],
-            "skin": "editor_tab",
-            "skinset": "default",
-            "type": "pane"
+            "type": "hsplitbox"
         }
     },
     "tree_selection": {

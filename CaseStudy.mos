@@ -6,6 +6,7 @@ setparam("XPRS_VERBOSE", true)
 ! Reading problem parameters
 ! ============================================================================
 filename := "CaseStudyData_Aggregated.txt";
+start_time := gettime
 
 declarations
   ! Number of customers
@@ -163,7 +164,7 @@ forall(j in Candidates, i in Customers)
 forall (i in Customers, j in Candidates, t in Periods, s in Suppliers, p in Products)  do
   y(j, t) is_binary
   z(j, s, t) is_integer
-  ! x(i, j, t, p) is_binary
+  ! x(i, j, t, p) is_binary ! This does not work for binary
 end-do
 
 ! Other Constraints
@@ -200,7 +201,7 @@ end-do
 
 ! Once a warehouse is opened, it stays open
 forall (j in Candidates, t in Periods | t > 1) do
-    KeepWarehouseOpenCS(j, t) := y(j, t) >= y(j, t-1)
+  KeepWarehouseOpenCS(j, t) := y(j, t) >= y(j, t-1)
 end-do
 
 
@@ -211,7 +212,7 @@ end-do
 
 !costs of warehouse (setup + operation)
 forall (j in Candidates) do
-  SetupCostPerWH(j) := Setup(j)/nbPeriods*(sum(t in Periods) y(j, t))
+  SetupCostPerWH(j) := Setup(j)*y(j, nbPeriods)
   OperationalCostPerWH(j) := Operating(j)*sum(t in Periods) y(j, t)
 end-do
 
@@ -271,14 +272,13 @@ writeln("Total Operational Cost: ", getsol(TotalOperationCost))
 writeln("Total Supplier Transportation Cost: ", getsol(TotalSuppliersCost))
 writeln("Total Customer Delivery Cost: ", getsol(TotalCustomerDeliveryCost))
 print_status
-
 writeln("MIP Gap: ", 100 * (getobjval - getparam("XPRS_BESTBOUND")) / getobjval)
-
+writeln("Time elapsed: ", end_time-start_time, " seconds.")
 writeln;writeln
 
-! writeln("Candidates solutions")
-! forall(j in Candidates, t in Periods) writeln("Period: ", t, ", Warehouse: ", j, ", Value: ", getsol(y(j,t)))
-! forall(j in Candidates) writeln("SetupCostperWH:", getsol(SetupCostPerWH(j)))
+writeln("Candidates solutions")
+forall(j in Candidates, t in Periods) writeln("Period: ", t, ", Warehouse: ", j, ", Value: ", getsol(y(j,t)))
+forall(j in Candidates) writeln("SetupCostperWH:", getsol(SetupCostPerWH(j)))
 
 ! writeln;writeln;writeln;writeln;writeln
 
