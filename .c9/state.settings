@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 311,
+        "@height": 343,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -40,7 +40,7 @@
                         "output": {
                             "id": "output754070",
                             "width": 968,
-                            "height": 279,
+                            "height": 311,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CaseStudy.mos",
@@ -64,7 +64,7 @@
             "@acestatus": 1,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 3,
+            "@document": 4,
             "@editorswitch": 1,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
@@ -72,9 +72,9 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 2,
-            "@session": 3,
-            "@tab": 3,
-            "@undoManager": 3,
+            "@session": 4,
+            "@tab": 4,
+            "@undoManager": 4,
             "@welcome": 1
         }
     },
@@ -90,7 +90,7 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "150:37",
+            "@position": "206:27",
             "@size": "1200:736"
         }
     },
@@ -163,6 +163,9 @@
     "search-history": {
         "replace": {
             "json()": [
+                "s",
+                "p",
+                "t",
                 "i",
                 "j",
                 "i"
@@ -170,6 +173,10 @@
         },
         "search": {
             "json()": [
+                "supl",
+                "pro",
+                "per",
+                "per ",
                 "cust",
                 "can"
             ]
@@ -181,6 +188,7 @@
             "meta": {
                 "accessList": [
                     "tab1",
+                    "tab3",
                     "tab0"
                 ]
             },
@@ -218,7 +226,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1707246510392
+                            "timestamp": 1707263715341
                         },
                         "filter": true,
                         "title": "CaseStudy.mos",
@@ -227,6 +235,26 @@
                     },
                     "editorType": "ace",
                     "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "/CaseStudyData_Aggregated.txt",
+                    "className": [
+                        "tab3"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1707248865500
+                        },
+                        "filter": true,
+                        "title": "CaseStudyData_Aggregated.txt",
+                        "tooltip": "/CaseStudyData_Aggregated.txt",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
             "skin": "editor_tab",
@@ -235,7 +263,9 @@
         }
     },
     "tree_selection": {
-        "json()": []
+        "json()": [
+            "/CaseStudyData_Aggregated.txt"
+        ]
     },
     "welcome": {
         "@first": true
