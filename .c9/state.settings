@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 153,
+        "@height": 389,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -27,7 +27,9 @@
                     "name": "tab2",
                     "path": "",
                     "className": [
-                        "tab2"
+                        "tab2",
+                        "running",
+                        "focus"
                     ],
                     "document": {
                         "changed": false,
@@ -35,17 +37,46 @@
                             "timestamp": 1707246517744
                         },
                         "filter": true,
-                        "title": "CaseStudy.mos - Stopped",
-                        "tooltip": "CaseStudy.mos - Stopped",
+                        "title": "CaseStudy.mos - Running",
+                        "tooltip": "CaseStudy.mos - Running",
                         "output": {
                             "id": "output754070",
                             "width": 968,
-                            "height": 121,
+                            "height": 357,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CaseStudy.mos",
                                 "debug": false,
                                 "toolbar": true
+                            },
+                            "running": {
+                                "pid": 54780,
+                                "name": "output754070",
+                                "running": 2,
+                                "runner": [
+                                    {
+                                        "caption": "Mosel",
+                                        "cmd": [
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
+                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
+                                            "run",
+                                            "${debug?--debug=6167}",
+                                            "--basedir",
+                                            "$project_path",
+                                            "$file",
+                                            "--stack-trace=20",
+                                            "$args"
+                                        ],
+                                        "cmdCleanup": [
+                                            "true"
+                                        ],
+                                        "debugger": "mosel",
+                                        "debugport": 6167,
+                                        "selector": "\\.mos$",
+                                        "$builtin": true
+                                    }
+                                ],
+                                "debug": false
                             }
                         }
                     },
@@ -64,7 +95,7 @@
             "@acestatus": 2,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 4,
+            "@document": 5,
             "@editorswitch": 2,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
@@ -72,9 +103,9 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 3,
-            "@session": 4,
-            "@tab": 4,
-            "@undoManager": 4,
+            "@session": 5,
+            "@tab": 5,
+            "@undoManager": 5,
             "@welcome": 1
         }
     },
@@ -90,7 +121,7 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": false,
-            "@position": "206:27",
+            "@position": "193:87",
             "@size": "1200:736"
         }
     },
@@ -105,9 +136,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab3",
-            "tab1",
-            "tab2"
+            "tab2",
+            "tab1"
         ]
     },
     "panels": {
@@ -161,6 +191,9 @@
             ]
         }
     },
+    "recentfiles": {
+        "json()": []
+    },
     "search-history": {
         "replace": {
             "json()": [
@@ -185,105 +218,87 @@
     },
     "tabs": {
         "json()": {
-            "focus": "/CaseStudyData_Aggregated.txt",
+            "focus": "/CaseStudy.mos",
+            "meta": {
+                "accessList": [
+                    "tab1",
+                    "tab4",
+                    "tab0"
+                ]
+            },
+            "name": "pane0",
             "nodes": [
                 {
-                    "type": "pane",
-                    "name": "pane0",
-                    "nodes": [
-                        {
-                            "type": "tab",
-                            "name": "tab0",
-                            "path": "",
-                            "className": [
-                                "tab0"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "welcome": true,
-                                    "newOnError": true,
-                                    "timestamp": 1707238345268
-                                },
-                                "filter": true,
-                                "title": "Welcome",
-                                "welcome": {}
-                            },
-                            "editorType": "welcome",
-                            "active": false
-                        },
-                        {
-                            "type": "tab",
-                            "name": "tab1",
-                            "path": "/CaseStudy.mos",
-                            "className": [
-                                "tab1"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1707305535936
-                                },
-                                "filter": true,
-                                "title": "CaseStudy.mos",
-                                "tooltip": "/CaseStudy.mos",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": true
-                        }
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "",
+                    "className": [
+                        "tab0"
                     ],
-                    "skin": "editor_tab",
-                    "skinset": "default",
-                    "meta": {
-                        "accessList": [
-                            "tab0",
-                            "tab1"
-                        ]
-                    }
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "welcome": true,
+                            "newOnError": true,
+                            "timestamp": 1707238345268
+                        },
+                        "filter": true,
+                        "title": "Welcome",
+                        "welcome": {}
+                    },
+                    "editorType": "welcome",
+                    "active": false
                 },
                 {
-                    "type": "pane",
-                    "name": "pane2",
-                    "nodes": [
-                        {
-                            "type": "tab",
-                            "name": "tab3",
-                            "path": "/CaseStudyData_Aggregated.txt",
-                            "className": [
-                                "tab3",
-                                "focus"
-                            ],
-                            "document": {
-                                "changed": false,
-                                "meta": {
-                                    "timestamp": 1707248865500
-                                },
-                                "filter": true,
-                                "title": "CaseStudyData_Aggregated.txt",
-                                "tooltip": "/CaseStudyData_Aggregated.txt",
-                                "ace": {}
-                            },
-                            "editorType": "ace",
-                            "active": true
-                        }
+                    "type": "tab",
+                    "name": "tab1",
+                    "path": "/CaseStudy.mos",
+                    "className": [
+                        "tab1",
+                        "focus"
                     ],
-                    "width": "50%",
-                    "skin": "editor_tab",
-                    "skinset": "default",
-                    "meta": {
-                        "accessList": [
-                            "tab3"
-                        ]
-                    }
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1707477760406
+                        },
+                        "filter": true,
+                        "title": "CaseStudy.mos",
+                        "tooltip": "/CaseStudy.mos",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/CaseStudyData_Aggregated_Testing.txt",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1707479722519
+                        },
+                        "filter": true,
+                        "title": "CaseStudyData_Aggregated_Testing.txt",
+                        "tooltip": "/CaseStudyData_Aggregated_Testing.txt",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
                 }
             ],
-            "type": "hsplitbox"
+            "skin": "editor_tab",
+            "skinset": "default",
+            "type": "pane"
         }
     },
     "tree_selection": {
         "json()": [
-            "/CaseStudyData_Aggregated.txt"
+            "/CaseStudyData_Aggregated_Testing.txt"
         ]
     },
     "welcome": {

@@ -5,7 +5,7 @@ setparam("XPRS_VERBOSE", true)
 ! ============================================================================
 ! Reading problem parameters
 ! ============================================================================
-filename := "CaseStudyData_Aggregated.txt";
+filename := "CaseStudyData_Aggregated_Customers_Only.txt";
 start_time := gettime
 
 declarations
@@ -164,7 +164,6 @@ forall(j in Candidates, i in Customers)
 forall (i in Customers, j in Candidates, t in Periods, s in Suppliers, p in Products)  do
   y(j, t) is_binary
   z(j, s, t) is_integer
-  ! x(i, j, t, p) is_binary ! This does not work for binary
 end-do
 
 ! Other Constraints
@@ -186,7 +185,7 @@ end-do
 
 ! Warehouse cannot receive more than warehouse capacity
 forall (j in Candidates, t in Periods) do
-  WarehouseCapacityCS(j, t) := sum(s in Suppliers) z(j, s, t) <= Capacity(j)
+  WarehouseCapacityCS(j, t) := sum(s in Suppliers) z(j, s, t) <= Capacity(j)*y(j, t)
 end-do
 
 ! Supplier cannot supply to a warehouse that is not open
@@ -196,7 +195,7 @@ end-do
 
 ! Cannot send more to customers than received from suppliers
 forall(p in Products, t in Periods, j in Candidates) do
-  WarehouseCustomerSupplierBalanceCS(j, t, p) := sum(i in Candidates) x(i, j, t, p)*DemandPeriods(i, p, t) <= sum(s in Suppliers | SupplierProductGroup(s) = p) z(j, s, t)
+  WarehouseCustomerSupplierBalanceCS(j, t, p) := sum(i in Customers) x(i, j, t, p)*DemandPeriods(i, p, t) <= sum(s in Suppliers | SupplierProductGroup(s) = p) z(j, s, t)
 end-do
 
 ! Once a warehouse is opened, it stays open
@@ -275,10 +274,6 @@ print_status
 writeln("MIP Gap: ", 100 * (getobjval - getparam("XPRS_BESTBOUND")) / getobjval)
 writeln("Time elapsed: ", end_time-start_time, " seconds.")
 writeln;writeln
-
-writeln("Candidates solutions")
-forall(j in Candidates, t in Periods) writeln("Period: ", t, ", Warehouse: ", j, ", Value: ", getsol(y(j,t)))
-forall(j in Candidates) writeln("SetupCostperWH:", getsol(SetupCostPerWH(j)))
 
 ! writeln;writeln;writeln;writeln;writeln
 
