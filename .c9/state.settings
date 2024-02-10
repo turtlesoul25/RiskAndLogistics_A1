@@ -28,8 +28,8 @@
                     "path": "",
                     "className": [
                         "tab2",
-                        "running",
-                        "focus"
+                        "focus",
+                        "running"
                     ],
                     "document": {
                         "changed": false,
@@ -41,7 +41,7 @@
                         "tooltip": "CaseStudy.mos - Running",
                         "output": {
                             "id": "output754070",
-                            "width": 968,
+                            "width": 2063,
                             "height": 357,
                             "config": {
                                 "runner": "Mosel",
@@ -50,15 +50,15 @@
                                 "toolbar": true
                             },
                             "running": {
-                                "pid": 54780,
+                                "pid": -8,
                                 "name": "output754070",
                                 "running": 2,
                                 "runner": [
                                     {
                                         "caption": "Mosel",
                                         "cmd": [
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node/bin/node",
-                                            "/Applications/FICO Xpress/Xpress Workbench.app/Contents/Resources/.c9/node_modules/mosel-runner/bin/mosel-runner",
+                                            "C:\\xpressmp\\workbench\\.c9\\node.exe",
+                                            "C:\\xpressmp\\workbench\\.c9\\node_modules\\mosel-runner\\bin\\mosel-runner",
                                             "run",
                                             "${debug?--debug=6167}",
                                             "--basedir",
@@ -91,21 +91,21 @@
     },
     "ext": {
         "counters": {
-            "@ace": 2,
-            "@acestatus": 2,
+            "@ace": 1,
+            "@acestatus": 1,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 5,
-            "@editorswitch": 2,
+            "@document": 4,
+            "@editorswitch": 1,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
             "@form": 4,
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 3,
-            "@session": 5,
+            "@session": 3,
             "@tab": 5,
-            "@undoManager": 5,
+            "@undoManager": 4,
             "@welcome": 1
         }
     },
@@ -119,10 +119,10 @@
     "local": {
         "window": {
             "@fullscreen": false,
-            "@maximized": false,
+            "@maximized": true,
             "@minimized": false,
-            "@position": "193:87",
-            "@size": "1200:736"
+            "@position": "2541:311",
+            "@size": "1184:701"
         }
     },
     "menus": {
@@ -143,6 +143,7 @@
     "panels": {
         "@active-left": "tree",
         "@active-right": "none",
+        "@width-left": 445,
         "commands.panel": {
             "@enabled": "false",
             "@name": "commands.panel"
@@ -187,7 +188,8 @@
     "projecttree": {
         "expanded": {
             "json()": [
-                "/"
+                "/",
+                "/Datasets"
             ]
         }
     },
@@ -222,8 +224,8 @@
             "meta": {
                 "accessList": [
                     "tab1",
-                    "tab4",
-                    "tab0"
+                    "tab0",
+                    "tab4"
                 ]
             },
             "name": "pane0",
@@ -236,15 +238,16 @@
                         "tab0"
                     ],
                     "document": {
-                        "changed": false,
+                        "filter": true,
+                        "title": "Welcome",
+                        "welcome": {},
+                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
                         "meta": {
                             "welcome": true,
                             "newOnError": true,
                             "timestamp": 1707238345268
                         },
-                        "filter": true,
-                        "title": "Welcome",
-                        "welcome": {}
+                        "changed": false
                     },
                     "editorType": "welcome",
                     "active": false
@@ -260,7 +263,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1707477760406
+                            "timestamp": 1707562742366
                         },
                         "filter": true,
                         "title": "CaseStudy.mos",
@@ -278,14 +281,41 @@
                         "tab4"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707479722519
-                        },
                         "filter": true,
                         "title": "CaseStudyData_Aggregated_Testing.txt",
                         "tooltip": "/CaseStudyData_Aggregated_Testing.txt",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 17391.5,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 733,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 1174,
+                                    "column": 107
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 266,
+                                "state": "start",
+                                "mode": "ace/mode/text"
+                            },
+                            "cleansed": true
+                        },
+                        "hash": "eb08aa197cd536c3a097ff3aaed8bfac93960116",
+                        "meta": {
+                            "timestamp": 1707562742414
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -298,7 +328,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/CaseStudyData_Aggregated_Testing.txt"
+            "/Datasets"
         ]
     },
     "welcome": {
