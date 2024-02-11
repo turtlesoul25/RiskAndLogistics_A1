@@ -5,7 +5,7 @@ setparam("XPRS_VERBOSE", true)
 ! ============================================================================
 ! Reading problem parameters
 ! ============================================================================
-filename := "Datasets\\CaseStudy_AggregatedData_Both.txt";
+filename := "Datasets\\CaseStudy_FixedCandidates_NoAggregation.txt";
 start_time := gettime
 
 declarations

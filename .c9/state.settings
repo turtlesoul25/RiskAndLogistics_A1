@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 389,
+        "@height": 248,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -27,9 +27,7 @@
                     "name": "tab2",
                     "path": "",
                     "className": [
-                        "tab2",
-                        "focus",
-                        "running"
+                        "tab2"
                     ],
                     "document": {
                         "changed": false,
@@ -37,46 +35,17 @@
                             "timestamp": 1707246517744
                         },
                         "filter": true,
-                        "title": "CaseStudy.mos - Running",
-                        "tooltip": "CaseStudy.mos - Running",
+                        "title": "CaseStudy.mos - Stopped",
+                        "tooltip": "CaseStudy.mos - Stopped",
                         "output": {
                             "id": "output754070",
-                            "width": 2063,
-                            "height": 357,
+                            "width": 1423,
+                            "height": 216,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CaseStudy.mos",
                                 "debug": false,
                                 "toolbar": true
-                            },
-                            "running": {
-                                "pid": -8,
-                                "name": "output754070",
-                                "running": 2,
-                                "runner": [
-                                    {
-                                        "caption": "Mosel",
-                                        "cmd": [
-                                            "C:\\xpressmp\\workbench\\.c9\\node.exe",
-                                            "C:\\xpressmp\\workbench\\.c9\\node_modules\\mosel-runner\\bin\\mosel-runner",
-                                            "run",
-                                            "${debug?--debug=6167}",
-                                            "--basedir",
-                                            "$project_path",
-                                            "$file",
-                                            "--stack-trace=20",
-                                            "$args"
-                                        ],
-                                        "cmdCleanup": [
-                                            "true"
-                                        ],
-                                        "debugger": "mosel",
-                                        "debugport": 6167,
-                                        "selector": "\\.mos$",
-                                        "$builtin": true
-                                    }
-                                ],
-                                "debug": false
                             }
                         }
                     },
@@ -136,8 +105,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab2",
-            "tab1"
+            "tab1",
+            "tab2"
         ]
     },
     "panels": {
@@ -263,7 +232,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1707562742366
+                            "timestamp": 1707566383994
                         },
                         "filter": true,
                         "title": "CaseStudy.mos",
