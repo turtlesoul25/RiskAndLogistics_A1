@@ -163,7 +163,7 @@ forall(j in Candidates, i in Customers)
 
 forall (i in Customers, j in Candidates, t in Periods, s in Suppliers, p in Products)  do
   y(j, t) is_binary
-  z(j, s, t) is_integer
+  ! z(j, s, t) is_integer
 end-do
 
 ! Other Constraints

@@ -1,0 +1,306 @@
+model "The 3-Echelon Multi-period Warehouse Location Problem with Uncertainty"
+uses "mmsystem", "mmjobs", "mmxprs", "mmxnlp"
+setparam("XPRS_VERBOSE", true)
+setparam("XPRS_MAXTIME", 1800)
+
+! ============================================================================
+! Reading problem parameters
+! ============================================================================
+filename := "Datasets\\CaseStudy_AggregatedData_CustomerOnly.txt";
+consider_scenarios := 1
+Scenarios_chosen := 1..consider_scenarios
+start_time := gettime
+
+declarations
+  ! Number of customers
+  nbCustomers: integer
+  ! Number of candidate locations
+  nbCandidates: integer
+  ! Number of suppliers
+  nbSuppliers: integer
+  ! Number of product groups
+  nbProductGroups: integer
+  ! Number of vehicle types
+  nbVehicleTypes: integer
+  ! Number of periods
+  nbPeriods: integer
+  ! Number of scenarios
+  nbScenarios: integer
+end-declarations
+
+
+! Read the various numbers from the file
+initializations from filename
+  nbCustomers nbCandidates nbSuppliers nbProductGroups nbVehicleTypes
+  nbPeriods nbScenarios
+end-initializations
+
+declarations
+  ! Set of customers
+  Customers = 1..nbCustomers
+  ! Set of candidate locations
+  Candidates = 1..nbCandidates
+  ! Set of suppliers
+  Suppliers = 1..nbSuppliers
+  ! Set of product groups
+  Products = 1..nbProductGroups
+  ! Set of vehicle types
+  Vehicles = 1..nbVehicleTypes
+  ! Set of periods
+  Periods = 1..nbPeriods
+  ! Set of scenarios
+  Scenarios = 1..nbScenarios
+
+  ! Vector of customer ids
+  CustomerId: array(Customers) of string
+  ! Vectors of customer coordinates
+  CustomerEasting: array(Customers) of real
+  CustomerNorthing: array(Customers) of real
+
+  ! The overall customer demand in kilograms per product group
+  Demand: array(Customers, Products) of integer
+  ! The annual customer demand in kilograms per product group and period
+  DemandPeriods: array(Customers, Products, Periods) of integer
+  ! The annual customer demand in kilograms per product group, period, and scenario
+  DemandPeriodScenarios: array(Customers, Products, Periods, Scenarios) of integer
+
+  ! Vector of candidate ids
+  CandidateId: array(Candidates) of string
+  ! Vectors of candidate coordinates
+  CandidateEasting: array(Candidates) of real
+  CandidateNorthing: array(Candidates) of real
+
+  ! Vector of supplier ids
+  SupplierId: array(Suppliers) of integer
+  ! Vectors of supplier coordinates
+  SupplierEasting: array(Suppliers) of real
+  SupplierNorthing: array(Suppliers) of real
+  ! Vector of supplier product groups; recall that each supplier only provides one product group
+  SupplierProductGroup: array(Suppliers) of integer
+  ! Vector of supplier capacity given in kilograms per year
+  SupplierCapacity: array(Suppliers) of real
+  ! Vector of supplier vehicle types
+  SupplierVehicleType: array(Suppliers) of integer
+
+  ! Setup costs for warehouses
+  Setup: array(Candidates) of integer
+  ! Operating costs for warehouses
+  Operating: array(Candidates) of integer
+  ! Capacity for warehouses
+  Capacity: array(Candidates) of integer
+
+  ! Distance matrix between candidate locations and customers
+  DistanceCandidateCustomer: array(Candidates,Customers) of real
+  ! Distance matrix between candidate locations and suppliers
+  DistanceCandidateSupplier: array(Candidates,Suppliers) of real
+  ! Matrix of transportation costs between candidate locations and customers
+  CostCandidateCustomers: array(Candidates,Customers) of real
+  ! Matrix of transportation costs between candidate locations and suppliers
+  CostCandidateSupplier: array(Candidates,Suppliers) of real
+
+  ! Vehicle related data. The vehicles are indexed 1, 2, and 3, where 1 stands
+  ! for 18t trucks, 2 for 7.5t lorries, and 3 for 3.5t vans.
+  ! The vehicle capacity in tonnes
+  VehicleCapacity: array(Vehicles) of real
+  ! The overall cost in pounds per mile travelled
+  VehicleCostPerMileOverall: array(Vehicles) of real
+  ! The overall cost in pounds per mile and tonne transported
+  VehicleCostPerMileAndTonneOverall: array(Vehicles) of real
+  ! The CO2 emission in kilograms per mile and tonne transported
+  VehicleCO2PerMileAndTonne: array(Vehicles) of real
+
+  !We now define decision variables
+
+  !define the demand of product served by candidate loc to customer in period
+  x: array(Customers, Candidates, Periods, Products, Scenarios_chosen) of mpvar
+
+  !where to set up location of warehouse
+  y: array(Candidates, Periods) of mpvar
+
+  !number of demand units that s supplies to j in time period t
+  z: array(Candidates, Suppliers, Periods) of mpvar
+
+end-declarations
+
+! Read data
+initializations from filename
+  CustomerId CustomerEasting CustomerNorthing
+  CandidateId CandidateEasting CandidateNorthing
+  SupplierId SupplierEasting SupplierNorthing
+  SupplierProductGroup SupplierCapacity SupplierVehicleType
+  Setup Operating Capacity
+  Demand as "CustomerDemand"
+  DemandPeriods as "CustomerDemandPeriods"
+  DemandPeriodScenarios as "CustomerDemandPeriodScenarios"
+  DistanceCandidateSupplier DistanceCandidateCustomer
+  VehicleCapacity VehicleCostPerMileOverall VehicleCostPerMileAndTonneOverall
+end-initializations
+
+
+
+! ==================================================================================================
+! Data preparation
+! ==================================================================================================
+
+! Transports between suppliers and locations use either 7.5t or 18t trucks, depending on the
+! vehicle type. Make sure to convert from tonne to kilogram.
+! --------------------------------------------------------------------------------------------------
+forall(j in Candidates, k in Suppliers) do
+  if(SupplierVehicleType(k) = 1) then
+    CostCandidateSupplier(j,k) := 2 * DistanceCandidateSupplier(j,k) * VehicleCostPerMileAndTonneOverall(1) / 1000
+  else
+    CostCandidateSupplier(j,k) := 2 * DistanceCandidateSupplier(j,k) * VehicleCostPerMileAndTonneOverall(2) / 1000
+  end-if
+end-do
+
+! Transports between locations and customers use 3.5t vans.
+! Make sure to convert from tonne to kilogram.
+! --------------------------------------------------------------------------------------------------
+forall(j in Candidates, i in Customers)
+  CostCandidateCustomers(j,i) := 2 * DistanceCandidateCustomer(j,i) * VehicleCostPerMileAndTonneOverall(3) / 1000
+
+
+! ==================================================================================================
+! Constraints
+! ==================================================================================================
+
+!Binary constraints
+
+forall (i in Customers, j in Candidates, t in Periods, s in Suppliers, p in Products, u in Scenarios_chosen)  do
+  y(j, t) is_binary
+  PositiveCS(i,j,t,p,u) := x(i, j, t, p, u) >= 0
+end-do
+! Other Constraints
+
+! Allocations only to candidates with a facility
+forall(i in Customers, j in Candidates, t in Periods, p in Products, u in Scenarios_chosen) do
+  CustomerAllocatedCS(i, j, t, p, u) := x(i, j, t, p, u) <= y(j, t)
+end-do
+
+! Every customer must be allocated to a warehouse so that demand is satisfied
+forall (i in Customers, t in Periods, p in Products, u in Scenarios_chosen) do
+  CustomerDemandCS(i, t, p, u) := sum (j in Candidates) x(i, j, t, p, u) = 1
+end-do
+
+! Supply only upto capacity
+forall (s in Suppliers, t in Periods) do
+  SupplierCapacityCS(s, t) := sum(j in Candidates) z(j, s, t) <= SupplierCapacity(s)
+end-do
+
+! Warehouse cannot receive more than warehouse capacity
+forall (j in Candidates, t in Periods) do
+  WarehouseCapacityCS(j, t) := sum(s in Suppliers) z(j, s, t) <= Capacity(j)*y(j, t)
+end-do
+
+! Supplier cannot supply to a warehouse that is not open
+forall (j in Candidates, s in Suppliers, t in Periods) do
+  OpenWarehouseSupplyCS(j, s, t) := z(j, s, t) <= SupplierCapacity(s)*y(j, t)
+end-do
+
+! Cannot send more to customers than received from suppliers
+forall(p in Products, t in Periods, j in Candidates, u in Scenarios_chosen) do
+  ! WarehouseCustomerSupplierBalanceCS(j, t, p, u) := sum(i in Customers) x(i,j,t,p,u)*DemandPeriodScenarios(i,p,t,u) <= sum(s in Suppliers | SupplierProductGroup(s) = p) z(j,s,t)
+  WarehouseCustomerSupplierBalanceCS(j, t, p, u) := sum(i in Customers) x(i,j,t,p,u)*DemandPeriodScenarios(i,p,t,u) <= sum(s in Suppliers | SupplierProductGroup(s) = p) z(j,s,t)
+end-do
+
+! Once a warehouse is opened, it stays open
+forall (j in Candidates, t in Periods | t > 1) do
+  KeepWarehouseOpenCS(j, t) := y(j, t) >= y(j, t-1)
+end-do
+
+
+
+! ==================================================================================================
+! Optimization
+! ==================================================================================================
+
+!costs of warehouse (setup + operation)
+forall (j in Candidates) do
+  SetupCostPerWH(j) := Setup(j)*y(j, nbPeriods)
+  OperationalCostPerWH(j) := Operating(j)*sum(t in Periods) y(j, t)
+end-do
+
+TotalSetupCost := sum(j in Candidates) SetupCostPerWH(j)
+TotalOperationCost := sum(j in Candidates) OperationalCostPerWH(j)
+
+!Transports costs
+TotalSuppliersCost := sum(s in Suppliers, j in Candidates, t in Periods) z(j, s, t)*CostCandidateSupplier(j, s)
+
+forall(u in Scenarios_chosen) do
+  CustomerDeliveryCost(u) := sum(i in Customers, j in Candidates, t in Periods, p in Products) CostCandidateCustomers(j, i)*x(i, j, t, p, u)*DemandPeriodScenarios(i, p, t, u)
+end-do
+TotalCustomerDeliveryCost := (1/consider_scenarios)*sum(u in Scenarios_chosen) CustomerDeliveryCost(u)
+
+TotalCost := TotalSetupCost + TotalOperationCost + TotalSuppliersCost + TotalCustomerDeliveryCost
+
+minimise(TotalCost)
+
+procedure print_status
+declarations
+  status: string
+end-declarations
+case getprobstat of
+  XPRS_OPT: status:="Solved to optimality"
+  XPRS_UNF: status:="Unfinished"
+  XPRS_INF: status:="Infeasible"
+  XPRS_UNB: status:="Unbounded"
+  XPRS_OTH: status:="Unsolved or objective worse than cutoff"
+  else status:="???"
+end-case
+writeln("Problem status: ", status)
+end-procedure
+
+end_time := gettime
+! ============================================================================
+! Print the results
+! ============================================================================
+forall (t in Periods) do
+writeln("In year ", t, ":")
+write("Selected Locations: ")
+forall(j in Candidates | getsol(y(j, t)) > 0.001)
+  write(j, " ")
+writeln; writeln
+
+
+writeln("Allocations: ")
+forall(i in Customers, p in Products) do
+  forall(j in Candidates | getsol(x(i,j,t,p,1)) > 0.001) do
+    writeln(i, " for product ", p, "-> ", j, ": ", 100*getsol(x(i,j,t,p,1)), '%')
+  end-do
+end-do
+writeln; writeln
+
+! writeln("Transportation costs: ", sum(i in Customers, j in Candidates, p in Products) CostCandidateCustomers(i,j)*x(i,j,t,p).sol)
+end-do
+
+! writeln("Setup costs: ", sum(j in Candidates, t in Periods) Setup(j)*y(j, t).sol)
+writeln("Total costs: ", getobjval)
+writeln("Total Setup Cost: ", getsol(TotalSetupCost))
+writeln("Total Operational Cost: ", getsol(TotalOperationCost))
+writeln("Total Supplier Transportation Cost: ", getsol(TotalSuppliersCost))
+writeln("Total Customer Delivery Cost: ", getsol(TotalCustomerDeliveryCost))
+print_status
+writeln("MIP Gap: ", 100 * (getobjval - getparam("XPRS_BESTBOUND")) / getobjval)
+writeln("Time elapsed: ", end_time-start_time, " seconds.")
+writeln;writeln
+
+! writeln;writeln;writeln;writeln;writeln
+
+! writeln("Customers solutions")
+! forall(i in Customers, j in Candidates, p in Products, t in Periods) writeln("Period: ", t, ", Warehouse: ", j, " Customer: ", i, ", Product: ", p, ", Value: ", getsol(x(i,j,t,p)))
+
+end-model
+model ModelName
+  options noimplicit
+  uses "mmxprs"
+  ! uses "mminsight" ! uncomment this line for an Xpress Insight model
+
+  declarations
+    ! ...
+    Objective:linctr
+  end-declarations
+
+  writeln("Begin running model")
+  !...
+  writeln("End running model")
+end-model
