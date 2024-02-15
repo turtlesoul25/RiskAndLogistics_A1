@@ -1,0 +1,1047 @@
+Running model
+ 
+Reading Problem xprs_1ddbd140870
+Problem Statistics
+      524290 (      0 spare) rows
+      501600 (      0 spare) structural columns
+     2234320 (      0 spare) non-zero elements
+MIP Entity Statistics
+      237600 entities        0 sets        0 set members
+FICO Xpress v9.2.5, Hyper, solve started 11:40:23, Feb 10, 2024
+Heap usage: 233MB (peak 233MB, 83KB system)
+Minimizing MILP xprs_1ddbd140870 using up to 8 threads and up to 15GB memory, with these control settings:
+OUTPUTLOG = 1
+MUTEXCALLBACKS = 0
+TUNERMODE = -1
+Original problem has:
+    524290 rows       501600 cols      2234320 elements    237600 entities
+Presolved problem has:
+    523903 rows       501600 cols      2233546 elements    237600 entities
+LP relaxation tightened
+Presolve finished in 13 seconds
+Heap usage: 459MB (peak 662MB, 83KB system)
+
+Coefficient range                    original                 solved
+  Coefficients   [min,max] : [ 1.00e+00,  1.53e+07] / [ 2.38e-07,  2.00e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  1.53e+07] / [ 7.90e-01,  1.53e+07]
+  Objective      [min,max] : [ 2.45e-04,  6.88e+06] / [ 2.45e-04,  6.88e+06]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 4.8GB
+Starting concurrent solve with dual (1 thread) and barrier (7 threads)
+
+              Concurrent-Solve,  18s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  1869761.4   .0000000 |           factorize
+ D  5515843.1   .0000000 |  B  2.199E+16 -2.537E+16
+ D  7667466.9   .0000000 |  B  2.199E+16 -2.537E+16
+ D  8701958.0   .0000000 |  B  8.952E+15 -2.393E+15
+ D  9788395.6   .0000000 |  B  3.516E+14 -3.939E+14
+ D  10842620.   .0000000 |  B  3.516E+14 -3.939E+14
+ D  11604003.   .0000000 |  B  2.363E+12 -4.315E+13
+ D  12313790.   .0000000 |  B  6.612E+09 -2.101E+11
+ D  12993346.   .0000000 |  B  6.612E+09 -2.101E+11
+ D  13509256.   .0000000 |  B  4.391E+09 -6.080E+10
+ D  13976812.   .0000000 |  B  3.901E+09 -4.351E+10
+ D  14424664.   .0000000 |  B  3.901E+09 -4.351E+10
+ D  14933747.   .0000000 |  B  3.570E+09 -3.308E+10
+ D  15445137.   .0000000 |  B  3.570E+09 -3.308E+10
+ D  15935607.   .0000000 |  B  3.370E+09 -2.807E+10
+ D  16364657.   .0000000 |  B  3.159E+09 -2.366E+10
+ D  16747055.   .0000000 |  B  3.159E+09 -2.366E+10
+ D  17158538.   .0000000 |  B  2.679E+09 -1.608E+10
+ D  17510885.   .0000000 |  B  1.730E+09 -8.711E+09
+ D  18003624.   .0000000 |  B  1.730E+09 -8.711E+09
+
+              Concurrent-Solve,  61s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  18330825.   .0000000 |  B  9.285E+08 -4.501E+09
+ D  18779053.   .0000000 |  B  9.285E+08 -4.501E+09
+ D  19722059.   .0000000 |  B  5.417E+08 -2.665E+09
+ D  20423456.   .0000000 |  B  4.449E+08 -1.437E+09
+ D  20779664.   .0000000 |  B  4.449E+08 -1.437E+09
+ D  21032855.   .0000000 |  B  3.719E+08 -7.525E+08
+ D  21220197.   .0000000 |  B  3.224E+08 -5.470E+08
+ D  21417532.   .0000000 |  B  3.224E+08 -5.470E+08
+ D  21551177.   .0000000 |  B  2.923E+08 -4.010E+08
+ D  21695555.   .0000000 |  B  2.693E+08 -3.307E+08
+ D  21889884.   .0000000 |  B  2.693E+08 -3.307E+08
+ D  22106584.   .0000000 |  B  2.225E+08 -2.453E+08
+ D  22216621.   .0000000 |  B  2.225E+08 -2.453E+08
+ D  22351532.   .0000000 |  B  2.069E+08 -2.035E+08
+ D  22548496.   .0000000 |  B  1.917E+08 -1.822E+08
+ D  22642023.   .0000000 |  B  1.917E+08 -1.822E+08
+ D  22854624.   .0000000 |  B  1.738E+08 -1.403E+08
+ D  22995164.   .0000000 |  B  1.598E+08 -1.067E+08
+ D  23088341.   .0000000 |  B  1.598E+08 -1.067E+08
+ D  23333044.   .0000000 |  B  1.503E+08 -88407128.
+
+              Concurrent-Solve,  99s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  23689351.   .0000000 |  B  1.362E+08 -64846119.
+ D  23748034.   .0000000 |  B  1.362E+08 -64846119.
+ D  23977318.   .0000000 |  B  1.321E+08 -60801227.
+ D  24071845.   .0000000 |  B  1.321E+08 -60801227.
+ D  24132035.   .0000000 |  B  1.206E+08 -48552375.
+ D  24204947.   .0000000 |  B  1.126E+08 -42300827.
+ D  24248301.   .0000000 |  B  1.126E+08 -42300827.
+ D  24321311.   .0000000 |  B  1.090E+08 -36965138.
+ D  24374065.   .0000000 |  B  97200348. -30689371.
+ D  24413507.   .0000000 |  B  97200348. -30689371.
+ D  24452482.   .0000000 |  B  90475323. -14927649.
+ D  24585513.   .0000000 |  B  85876395. -8959943.5
+ D  24654110.   .0000000 |  B  85876395. -8959943.5
+ D  24697087.   .0000000 |  B  78869724.  172612.25
+ D  24806908.   .0000000 |  B  78869724.  172612.25
+ D  24846283.   .0000000 |  B  77986594.  2015976.0
+ D  24877274.   .0000000 |  B  76119609.  4021560.5
+ D  24943122.   .0000000 |  B  76119609.  4021560.5
+ D  25033749.   .0000000 |  B  72273762.  8357713.8
+ D  25106204.   .0000000 |  B  71177620.  9171771.7
+
+              Concurrent-Solve, 144s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  25178276.   .0000000 |  B  71177620.  9171771.7
+ D  25271409.   .0000000 |  B  66237654.  12529354.
+ D  25315398.   .0000000 |  B  66237654.  12529354.
+ D  25364812.   .0000000 |  B  64040767.  15080586.
+ D  25446007.   .0000000 |  B  62821132.  16615732.
+ D  25486899.   .0000000 |  B  62821132.  16615732.
+ D  25532524.   .0000000 |  B  58979915.  17913858.
+ D  25573349.   .0000000 |  B  55751347.  19884684.
+ D  25606805.   .0000000 |  B  55751347.  19884684.
+ D  25653256.   .0000000 |  B  54277096.  21185540.
+ D  25679699.   .0000000 |  B  53997685.  21512287.
+ D  25710347.   .0000000 |  B  53997685.  21512287.
+ D  25748768.   .0000000 |  B  49163819.  23088323.
+ D  25782725.   .0000000 |  B  49163819.  23088323.
+ D  25798596.   .0000000 |  B  47009372.  24384642.
+ D  25818332.   .0000000 |  B  46143682.  25256629.
+ D  25831840.   .0000000 |  B  46143682.  25256629.
+ D  25852282.   .0000000 |  B  45826542.  25948724.
+ D  25868233.   .0000000 |  B  45790677.  25990474.
+ D  25892363.   .0000000 |  B  45790677.  25990474.
+
+              Concurrent-Solve, 193s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  25908444.   .0000000 |  B  45547574.  26552452.
+ D  25929822.   .0000000 |  B  44489674.  26970764.
+ D  25950397.   .0000000 |  B  44489674.  26970764.
+ D  25995354.   .0000000 |  B  40354994.  27788604.
+ D  26014449.   .0000000 |  B  40354994.  27788604.
+ D  26046244.   .0000000 |  B  37598635.  28297369.
+ D  26070569.   .0000000 |  B  36091040.  28651851.
+ D  26085015.   .0000000 |  B  36091040.  28651851.
+ D  26129975.   .0000000 |  B  34556875.  28897040.
+ D  26141978.   .0000000 |  B  34441875.  28928209.
+ D  26152984.   .0000000 |  B  34441875.  28928209.
+ D  26160185.   .0000000 |  B  34147189.  29262636.
+ D  26168398.   .0000000 |  B  34147189.  29262636.
+ D  26178037.   .0000000 |  B  34074837.  29276164.
+ D  26201475.   .0000000 |  B  32349940.  29474083.
+ D  26219263.   .0000000 |  B  32349940.  29474083.
+ D  26228819.   .0000000 |  B  32222218.  29544043.
+ D  26239177.   .0000000 |  B  32001873.  29635182.
+ D  26250329.   .0000000 |  B  32001873.  29635182.
+ D  26280659.   .0000000 |  B  31991539.  29642500.
+
+              Concurrent-Solve, 246s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  26293227.   .0000000 |  B  31758620.  29703426.
+ D  26307682.   .0000000 |  B  31758620.  29703426.
+ D  26313432.   .0000000 |  B  31508716.  29836110.
+ D  26328490.   .0000000 |  B  31508716.  29836110.
+ D  26342155.   .0000000 |  B  30614670.  29931244.
+ D  26355679.   .0000000 |  B  30355676.  30029132.
+ D  26366143.   .0000000 |  B  30355676.  30029132.
+ D  26374345.   .0000000 |  B  30140581.  30088537.
+ D  26383403.   .0000000 |  B  30108719.  30098177.
+ D  26405285.   .0000000 |  B  30108719.  30098177.
+ D  26413686.   .0000000 |  B  30101960.  30101595.
+ D  26467853.   .0000000 |  B  30101766.  30101766.
+ D  26531589.   .0000000 |  B  30101766.  30101766.
+ D  26550494.   .0000000 |  B  30101766.  30101766.
+ D  26559369.   .0000000 |  B  30101766.  30101766.
+ D  26593476.   .0000000 |           crossover     
+ D  26612997.   .0000000 |           crossover     
+ D  26622787.   .0000000 |           crossover     
+ D  26632871.   .0000000 |           crossover     
+ D  26650507.   .0000000 |           crossover     
+
+              Concurrent-Solve, 273s
+            Dual                      Barrier
+    objective   dual inf       objective   sum inf
+ D  26659119.   .0000000 |           crossover
+ D  26672747.   .0000000 |           crossover     
+ D  26694395.   .0000000 |           crossover     
+ D  26709448.   .0000000 |           crossover     
+----- interrupted ------ | ------- optimal --------
+Concurrent statistics:
+      Dual: 126411 simplex iterations, 261.54s
+   Barrier: 71 barrier and 29294 simplex iterations, 228.35s
+            Barrier used 7 threads 4 cores
+            Barrier used AVX support, crossover used 7 threads
+Optimal solution found
+ 
+   Its         Obj Value      S   Ninf  Nneg        Sum Inf  Time
+    12       30101765.87      P      0     0        .000000   279
+Barrier solved problem
+  71 barrier and 29294 simplex iterations in 261.93 seconds at time 279
+
+Final objective                       : 3.010176587464017e+07
+  Max primal violation      (abs/rel) : 2.220e-16 / 2.220e-16
+  Max dual violation        (abs/rel) : 5.821e-11 / 5.821e-11
+  Max complementarity viol. (abs/rel) :       0.0 /       0.0
+High attention level predicted from matrix features
+
+Starting root cutting & heuristics
+Deterministic mode with up to 1 additional thread
+ 
+ Its Type    BestSoln    BestBound   Sols    Add    Del     Gap     GInf   Time
+Heuristic s running ( 20031 LP iterations in    2.3 seconds)
+s         408825305.9  30101765.87      1                 92.64%       0    356
+   1  K   408825305.9  30101765.87      1      0      0   92.64%     170    358
+Heuristic search 'R' started
+R         32869218.24  30101765.87      2                  8.42%       0    378
+R         32843504.03  30101765.87      3                  8.35%       0    378
+R         32774867.12  30101765.87      4                  8.16%       0    378
+R         32738794.12  30101765.87      5                  8.05%       0    379
+R         32714384.19  30101765.87      6                  7.99%       0    379
+R         32690218.29  30101765.87      7                  7.92%       0    380
+R         32666294.06  30101765.87      8                  7.85%       0    383
+R         32602630.71  30101765.87      9                  7.67%       0    385
+R         32579582.41  30101765.87     10                  7.61%       0    386
+R         32556764.57  30101765.87     11                  7.54%       0    386
+R         32534174.90  30101765.87     12                  7.48%       0    388
+R         32525516.30  30101765.87     13                  7.45%       0    393
+R         31318548.99  30101765.87     14                  3.89%       0    397
+R         31244925.00  30101765.87     15                  3.66%       0    399
+R         31243114.81  30101765.87     16                  3.65%       0    399
+R         30459925.38  30101765.87     17                  1.18%       0    399
+R         30447470.07  30101765.87     18                  1.14%       0    400
+Heuristic search 'R' stopped
+M         30443983.24  30101765.87     19                  1.12%       0    412
+M         30440531.31  30101765.87     20                  1.11%       0    424
+M         30437113.89  30101765.87     21                  1.10%       0    434
+M         30433730.63  30101765.87     22                  1.09%       0    446
+M         30430381.19  30101765.87     23                  1.08%       0    457
+M         30427065.30  30101765.87     24                  1.07%       0    468
+M         30423783.29  30101765.87     25                  1.06%       0    478
+M         30420533.79  30101765.87     26                  1.05%       0    490
+M         30392941.21  30101765.87     27                  0.96%       0    580
+M         30381440.65  30101765.87     28                  0.92%       0    618
+M         30378614.10  30101765.87     29                  0.91%       0    633
+M         30375815.83  30101765.87     30                  0.90%       0    644
+M         30373046.03  30101765.87     31                  0.89%       0    654
+M         30370303.42  30101765.87     32                  0.88%       0    663
+M         30367588.26  30101765.87     33                  0.88%       0    673
+M         30364900.25  30101765.87     34                  0.87%       0    683
+M         30362239.11  30101765.87     35                  0.86%       0    693
+M         30351946.67  30101765.87     36                  0.82%       0    732
+M         30344488.03  30101765.87     37                  0.80%       0    780
+M         30339629.10  30101765.87     38                  0.78%       0    818
+M         30337221.18  30101765.87     39                  0.78%       0    832
+M         30330200.26  30101765.87     40                  0.75%       0    866
+M         30304818.62  30101765.87     41                  0.67%       0    878
+M         30302418.51  30101765.87     42                  0.66%       0    890
+M         30300382.16  30101765.87     43                  0.66%       0    902
+M         30298366.18  30101765.87     44                  0.65%       0    912
+M         30296370.42  30101765.87     45                  0.64%       0    924
+M         30294394.60  30101765.87     46                  0.64%       0    935
+M         30292438.54  30101765.87     47                  0.63%       0    947
+M         30290502.04  30101765.87     48                  0.62%       0    956
+M         30282906.11  30101765.87     49                  0.60%       0    969
+
+Performing root presolve...
+
+Reduced problem has:   19934 rows   18464 columns     81344 elements
+Presolve dropped   :  503969 rows  483136 columns   2152202 elements
+Presolve tightened :      1544 elements
+Will try to keep branch and bound tree memory usage below 3.8GB
+Starting concurrent solve with dual (1 thread) and barrier (7 threads)
+
+              Concurrent-Solve, 973s
+            Dual                      Barrier
+    objective   dual inf        p.obj.     d.obj.
+ D  26885793.   .0000000 |  B  50363355. -11730074.
+----- interrupted ------ | ------- optimal --------
+Concurrent statistics:
+      Dual: 922879 simplex iterations, 2.22s
+   Barrier: 40 barrier and 1373 simplex iterations, 2.21s
+            Barrier used 7 threads 4 cores
+            Barrier used AVX support, crossover used 7 threads
+Optimal solution found
+
+   Its         Obj Value      S   Ninf  Nneg        Sum Inf  Time
+     0       30101765.87      P      0     0        .000000   975
+Barrier solved problem
+  40 barrier and 1373 simplex iterations in 2.40 seconds at time 975
+
+Final objective                       : 3.010176587464015e+07
+  Max primal violation      (abs/rel) : 2.220e-16 / 2.220e-16
+  Max dual violation        (abs/rel) : 1.164e-10 / 1.164e-10
+  Max complementarity viol. (abs/rel) :       0.0 /       0.0
+High attention level predicted from matrix features
+
+Starting root cutting & heuristics
+Deterministic mode with up to 1 additional thread
+
+ Its Type    BestSoln    BestBound   Sols    Add    Del     Gap     GInf   Time
+P         30270853.35  30101765.87     50                  0.56%       0    976
+   1  K   30270853.35  30101765.87     50      0      0    0.56%     170    977
+Heuristic search 'R' started
+R         30260309.41  30101765.87     51                  0.52%       0    977
+R         30226718.34  30101765.87     52                  0.41%       0    977
+Heuristic search 'R' stopped
+M         30225439.01  30101765.87     53                  0.41%       0    978
+M         30224172.49  30101765.87     54                  0.40%       0    979
+M         30222918.63  30101765.87     55                  0.40%       0    981
+M         30221677.31  30101765.87     56                  0.40%       0    982
+M         30220448.43  30101765.87     57                  0.39%       0    983
+P         30214950.62  30101765.87     58                  0.37%       0    987
+P         30214775.44  30101765.87     59                  0.37%       0    987
+Will try to keep branch and bound tree memory usage below 4.2GB
+
+Starting tree search.
+Deterministic mode with up to 8 running threads and up to 16 tasks.
+Heap usage: 849MB (peak 2102MB, 152MB system)
+
+    Node     BestSoln    BestBound   Sols Active  Depth     Gap     GInf   Time
+       1  30214775.44  30123821.04     59      2      1    0.30%     170    989
+       2  30214775.44  30127800.42     59      2      3    0.29%     120    992
+       3  30214775.44  30131585.94     59      3      3    0.28%     122    992
+Will try to keep branch and bound tree memory usage below 2.8GB
+       4  30214775.44  30131585.94     59      3      3    0.28%     164    992
+       6  30214775.44  30131585.94     59      2      4    0.28%     111    993
+       7  30214775.44  30131585.94     59      2      4    0.28%     111    993
+       8  30214775.44  30170175.51     59      2      4    0.15%     105    995
+      10  30214775.44  30170175.51     59      2      4    0.15%     105    995
+ *** Search completed ***
+Numerical issues encountered:
+   Dual failures    :     20 out of       715 (ratio: 0.0280)
+   Predicted att. level   : 0.5018
+Uncrunching matrix
+Final MIP objective                   : 3.021477543730082e+07
+Final MIP bound                       : 3.021474533553495e+07
+  Solution time / primaldual integral :    995.66s/ 38.517500%
+  Number of solutions found / nodes   :        59 /        15
+  Max primal violation      (abs/rel) : 1.863e-09 / 6.742e-15
+  Max integer violation     (abs    ) : 5.588e-09
+In year 1:
+Selected Locations: 42 315 
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 315: 100%
+3 for product 2-> 315: 100%
+3 for product 3-> 315: 100%
+3 for product 4-> 315: 100%
+4 for product 1-> 315: 100%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 315: 100%
+6 for product 2-> 315: 100%
+6 for product 3-> 315: 100%
+6 for product 4-> 315: 100%
+7 for product 1-> 42: 100%
+7 for product 2-> 42: 100%
+7 for product 3-> 42: 100%
+7 for product 4-> 42: 100%
+8 for product 1-> 42: 100%
+8 for product 2-> 42: 100%
+8 for product 3-> 42: 100%
+8 for product 4-> 42: 100%
+9 for product 1-> 315: 100%
+9 for product 2-> 315: 100%
+9 for product 3-> 315: 100%
+9 for product 4-> 315: 100%
+10 for product 1-> 42: 100%
+10 for product 2-> 42: 100%
+10 for product 3-> 42: 100%
+10 for product 4-> 42: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 315: 100%
+11 for product 4-> 315: 100%
+12 for product 1-> 315: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 315: 100%
+12 for product 4-> 315: 100%
+13 for product 1-> 315: 100%
+13 for product 2-> 315: 100%
+13 for product 3-> 315: 100%
+13 for product 4-> 315: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 100%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 2:
+Selected Locations: 42 315
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 315: 100%
+3 for product 2-> 315: 100%
+3 for product 3-> 315: 100%
+3 for product 4-> 315: 100%
+4 for product 1-> 315: 100%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 315: 100%
+6 for product 2-> 315: 100%
+6 for product 3-> 315: 100%
+6 for product 4-> 315: 100%
+7 for product 1-> 42: 100%
+7 for product 2-> 42: 100%
+7 for product 3-> 42: 100%
+7 for product 4-> 42: 100%
+8 for product 1-> 42: 100%
+8 for product 2-> 42: 100%
+8 for product 3-> 42: 100%
+8 for product 4-> 42: 100%
+9 for product 1-> 315: 100%
+9 for product 2-> 315: 100%
+9 for product 3-> 315: 100%
+9 for product 4-> 315: 100%
+10 for product 1-> 42: 100%
+10 for product 2-> 42: 100%
+10 for product 3-> 42: 100%
+10 for product 4-> 42: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 315: 100%
+11 for product 4-> 315: 100%
+12 for product 1-> 315: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 315: 100%
+12 for product 4-> 315: 100%
+13 for product 1-> 315: 100%
+13 for product 2-> 315: 100%
+13 for product 3-> 315: 100%
+13 for product 4-> 315: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 100%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 3:
+Selected Locations: 42 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 315: 100%
+3 for product 2-> 315: 100%
+3 for product 3-> 315: 100%
+3 for product 4-> 315: 100%
+4 for product 1-> 315: 100%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 183: 100%
+6 for product 2-> 183: 100%
+6 for product 3-> 183: 100%
+6 for product 4-> 183: 100%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 183: 100%
+9 for product 2-> 315: 100%
+9 for product 3-> 315: 100%
+9 for product 4-> 315: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 315: 100%
+11 for product 4-> 315: 100%
+12 for product 1-> 315: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 315: 100%
+12 for product 4-> 315: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 100%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 4:
+Selected Locations: 42 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 315: 100%
+3 for product 2-> 315: 100%
+3 for product 3-> 315: 100%
+3 for product 4-> 315: 100%
+4 for product 1-> 315: 100%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 183: 100%
+6 for product 2-> 183: 100%
+6 for product 3-> 183: 100%
+6 for product 4-> 183: 100%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 183: 100%
+9 for product 2-> 315: 100%
+9 for product 3-> 315: 100%
+9 for product 4-> 315: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 42: 92.65308104%
+11 for product 3-> 315: 7.346918963%
+11 for product 4-> 42: 100%
+12 for product 1-> 315: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 315: 100%
+12 for product 4-> 315: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 100%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 5:
+Selected Locations: 42 48 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 48: 100%
+3 for product 2-> 48: 100%
+3 for product 3-> 48: 100%
+3 for product 4-> 48: 100%
+4 for product 1-> 315: 100%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 183: 100%
+6 for product 2-> 183: 100%
+6 for product 3-> 183: 100%
+6 for product 4-> 183: 100%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 48: 100%
+9 for product 2-> 48: 100%
+9 for product 3-> 48: 100%
+9 for product 4-> 48: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 42: 52.67689268%
+11 for product 3-> 315: 47.32310732%
+11 for product 4-> 42: 100%
+12 for product 1-> 315: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 315: 100%
+12 for product 4-> 315: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 100%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 6:
+Selected Locations: 42 48 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 48: 100%
+3 for product 2-> 48: 100%
+3 for product 3-> 48: 100%
+3 for product 4-> 48: 100%
+4 for product 1-> 315: 100%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 183: 100%
+6 for product 2-> 183: 34.9020554%
+6 for product 2-> 315: 65.0979446%
+6 for product 3-> 48: 5.520577474%
+6 for product 3-> 183: 94.47942253%
+6 for product 4-> 48: 91.74589751%
+6 for product 4-> 315: 8.25410249%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 48: 100%
+9 for product 2-> 48: 100%
+9 for product 3-> 48: 100%
+9 for product 4-> 48: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 42: 100%
+11 for product 4-> 42: 100%
+12 for product 1-> 48: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 48: 61.51648901%
+12 for product 3-> 315: 38.48351099%
+12 for product 4-> 48: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 100%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 7:
+Selected Locations: 42 48 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 48: 100%
+3 for product 2-> 48: 100%
+3 for product 3-> 48: 100%
+3 for product 4-> 48: 100%
+4 for product 1-> 42: 58.80383498%
+4 for product 1-> 315: 41.19616502%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 315: 100%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 183: 100%
+6 for product 2-> 183: 65.13388249%
+6 for product 2-> 315: 34.86611751%
+6 for product 3-> 48: 29.53395898%
+6 for product 3-> 183: 70.27718138%
+6 for product 3-> 315: 0.1888596394%
+6 for product 4-> 48: 69.1827711%
+6 for product 4-> 315: 30.8172289%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 48: 100%
+9 for product 2-> 48: 100%
+9 for product 3-> 48: 100%
+9 for product 4-> 48: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 42: 100%
+11 for product 4-> 42: 100%
+12 for product 1-> 48: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 48: 100%
+12 for product 4-> 48: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 42: 14.43116556%
+14 for product 2-> 401: 85.56883444%
+14 for product 3-> 42: 100%
+14 for product 4-> 42: 100%
+15 for product 1-> 315: 100%
+15 for product 2-> 315: 100%
+15 for product 3-> 315: 100%
+15 for product 4-> 315: 100%
+
+
+In year 8:
+Selected Locations: 42 48 54 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 54: 100%
+3 for product 2-> 54: 100%
+3 for product 3-> 54: 100%
+3 for product 4-> 54: 100%
+4 for product 1-> 54: 31.99826283%
+4 for product 1-> 315: 68.00173717%
+4 for product 2-> 315: 100%
+4 for product 3-> 315: 100%
+4 for product 4-> 54: 2.003062169%
+4 for product 4-> 315: 97.99693783%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 183: 100%
+6 for product 2-> 54: 54.21190313%
+6 for product 2-> 183: 17.52491732%
+6 for product 2-> 315: 28.26317954%
+6 for product 3-> 48: 34.69852755%
+6 for product 3-> 54: 5.44408788%
+6 for product 3-> 183: 59.85738457%
+6 for product 4-> 48: 96.90698551%
+6 for product 4-> 54: 3.093014487%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 48: 100%
+9 for product 2-> 48: 100%
+9 for product 3-> 48: 100%
+9 for product 4-> 48: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 42: 100%
+11 for product 4-> 42: 100%
+12 for product 1-> 48: 100%
+12 for product 2-> 54: 100%
+12 for product 3-> 48: 100%
+12 for product 4-> 54: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 42: 100%
+14 for product 2-> 401: 100%
+14 for product 3-> 42: 26.15261092%
+14 for product 3-> 401: 73.84738908%
+14 for product 4-> 401: 100%
+15 for product 1-> 54: 100%
+15 for product 2-> 54: 100%
+15 for product 3-> 54: 100%
+15 for product 4-> 54: 100%
+
+
+In year 9:
+Selected Locations: 42 48 54 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 54: 100%
+3 for product 2-> 54: 100%
+3 for product 3-> 54: 100%
+3 for product 4-> 54: 100%
+4 for product 1-> 54: 24.72717073%
+4 for product 1-> 315: 75.27282927%
+4 for product 2-> 315: 100%
+4 for product 3-> 54: 36.85759403%
+4 for product 3-> 315: 63.14240597%
+4 for product 4-> 54: 0.981654894%
+4 for product 4-> 315: 99.01834511%
+5 for product 1-> 315: 100%
+5 for product 2-> 315: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 315: 100%
+6 for product 1-> 48: 1.525030342%
+6 for product 1-> 183: 98.47496966%
+6 for product 2-> 54: 41.64080053%
+6 for product 2-> 183: 18.94756443%
+6 for product 2-> 315: 39.41163504%
+6 for product 3-> 48: 25.72866313%
+6 for product 3-> 54: 26.76580741%
+6 for product 3-> 183: 47.50552946%
+6 for product 4-> 48: 54.7208547%
+6 for product 4-> 54: 45.2791453%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 48: 100%
+9 for product 2-> 48: 100%
+9 for product 3-> 48: 100%
+9 for product 4-> 48: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 42: 100%
+11 for product 3-> 42: 44.83235953%
+11 for product 3-> 315: 55.16764047%
+11 for product 4-> 42: 100%
+12 for product 1-> 48: 100%
+12 for product 2-> 54: 100%
+12 for product 3-> 48: 100%
+12 for product 4-> 54: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 401: 100%
+14 for product 2-> 401: 100%
+14 for product 3-> 401: 100%
+14 for product 4-> 401: 100%
+15 for product 1-> 54: 100%
+15 for product 2-> 54: 100%
+15 for product 3-> 54: 100%
+15 for product 4-> 54: 100%
+
+
+In year 10:
+Selected Locations: 42 48 54 183 315 401
+
+Allocations:
+1 for product 1-> 42: 100%
+1 for product 2-> 42: 100%
+1 for product 3-> 42: 100%
+1 for product 4-> 42: 100%
+2 for product 1-> 42: 100%
+2 for product 2-> 42: 100%
+2 for product 3-> 42: 100%
+2 for product 4-> 42: 100%
+3 for product 1-> 54: 100%
+3 for product 2-> 54: 100%
+3 for product 3-> 54: 100%
+3 for product 4-> 54: 100%
+4 for product 1-> 54: 18.58189346%
+4 for product 1-> 315: 21.12111856%
+4 for product 1-> 401: 60.29698797%
+4 for product 2-> 401: 100%
+4 for product 3-> 54: 12.42289761%
+4 for product 3-> 315: 87.57710239%
+4 for product 4-> 315: 100%
+5 for product 1-> 401: 100%
+5 for product 2-> 401: 100%
+5 for product 3-> 315: 100%
+5 for product 4-> 401: 100%
+6 for product 1-> 48: 13.40531781%
+6 for product 1-> 183: 86.59468219%
+6 for product 2-> 54: 65.1599659%
+6 for product 2-> 315: 34.8400341%
+6 for product 3-> 48: 13.73788741%
+6 for product 3-> 54: 44.4098653%
+6 for product 3-> 183: 41.85224729%
+6 for product 4-> 48: 45.11458934%
+6 for product 4-> 54: 49.34389192%
+6 for product 4-> 315: 5.541518737%
+7 for product 1-> 401: 100%
+7 for product 2-> 401: 100%
+7 for product 3-> 401: 100%
+7 for product 4-> 401: 100%
+8 for product 1-> 401: 100%
+8 for product 2-> 401: 100%
+8 for product 3-> 401: 100%
+8 for product 4-> 401: 100%
+9 for product 1-> 48: 100%
+9 for product 2-> 48: 100%
+9 for product 3-> 48: 100%
+9 for product 4-> 48: 100%
+10 for product 1-> 401: 100%
+10 for product 2-> 401: 100%
+10 for product 3-> 401: 100%
+10 for product 4-> 401: 100%
+11 for product 1-> 42: 100%
+11 for product 2-> 401: 100%
+11 for product 3-> 42: 6.185183884%
+11 for product 3-> 401: 93.81481612%
+11 for product 4-> 401: 100%
+12 for product 1-> 48: 100%
+12 for product 2-> 315: 100%
+12 for product 3-> 48: 100%
+12 for product 4-> 54: 100%
+13 for product 1-> 183: 100%
+13 for product 2-> 183: 100%
+13 for product 3-> 183: 100%
+13 for product 4-> 183: 100%
+14 for product 1-> 401: 100%
+14 for product 2-> 401: 100%
+14 for product 3-> 401: 100%
+14 for product 4-> 401: 100%
+15 for product 1-> 54: 100%
+15 for product 2-> 54: 100%
+15 for product 3-> 54: 100%
+15 for product 4-> 54: 100%
+
+
+Total costs: 30214775.44
+Total Setup Cost: 5384000
+Total Operational Cost: 4232600
+Total Supplier Transportation Cost: 3789144.381
+Total Customer Delivery Cost: 16809031.06
+Problem status: Solved to optimality
+MIP Gap: 9.962597914e-05
+Time elapsed: 1002.43473 seconds.
+
+
+
+Process exited with code: 0
