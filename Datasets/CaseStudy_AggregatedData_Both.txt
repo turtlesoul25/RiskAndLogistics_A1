@@ -2,6 +2,7 @@
 nbCustomers: 15
 ! Number of candidate locations
 nbCandidates: 15
+ 
 ! Number of suppliers
 nbSuppliers: 53
 ! Number of product groups
@@ -13,7 +14,6 @@ nbPeriods: 10
 ! Number of scenarios
 nbScenarios: 100
 
-! Vector of supplier ids; needed to reference suppliers for output
 SupplierId: [ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 ]
 
 ! Vectors of supplier coordinates
@@ -41,8 +41,7 @@ VehicleCostPerMileAndTonneOverall: [ 0.185 0.720 0.857 ]
 ! The CO2 in kilograms per mile and tonne transported
 VehicleCO2PerMileAndTonne: [ 0.11 0.31 0.30 ]
 
-
- 
+! Setup cost for warehouses
 ! Vector of customer ids
 CustomerId: [ "AB" "DD" "DG" "EH" "FK" "G" "HS" "IV" "KA" "KW" "KY" "ML" "PA" "PH" "TD" ]
 
