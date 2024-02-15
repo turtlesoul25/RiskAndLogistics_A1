@@ -6,8 +6,8 @@ setparam("XPRS_MAXTIME", 1800)
 ! ============================================================================
 ! Reading problem parameters
 ! ============================================================================
-filename := "Datasets\\CaseStudy_AggregatedData_CustomerOnly.txt";
-consider_scenarios := 1
+filename := "Datasets\\CaseStudy_AggData_220_candidates.txt";
+consider_scenarios := 20
 Scenarios_chosen := 1..consider_scenarios
 start_time := gettime
 

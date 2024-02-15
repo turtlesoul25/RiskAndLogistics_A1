@@ -12,7 +12,7 @@
     },
     "console": {
         "@expanded": true,
-        "@height": 489,
+        "@height": 451,
         "@maximized": "false",
         "json()": {
             "meta": {
@@ -31,10 +31,6 @@
                         "tab2"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707246517744
-                        },
                         "filter": true,
                         "title": "CaseStudy.mos - Stopped",
                         "tooltip": "CaseStudy.mos - Stopped",
@@ -42,6 +38,7 @@
                             "id": "output754070",
                             "width": 1054,
                             "height": 457,
+                            "scrollTop": 158654.875,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CaseStudy.mos",
@@ -49,7 +46,12 @@
                                 "toolbar": true,
                                 "name": ""
                             }
-                        }
+                        },
+                        "hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+                        "meta": {
+                            "timestamp": 1707246517744
+                        },
+                        "changed": false
                     },
                     "editorType": "output",
                     "active": false
@@ -59,8 +61,7 @@
                     "name": "tab10",
                     "path": "",
                     "className": [
-                        "tab10",
-                        "focus"
+                        "tab10"
                     ],
                     "document": {
                         "changed": false,
@@ -72,8 +73,8 @@
                         "tooltip": "CaseStudyQ2.mos - Stopped",
                         "output": {
                             "id": "output1114512",
-                            "width": 1054,
-                            "height": 457,
+                            "width": 1534,
+                            "height": 419,
                             "config": {
                                 "runner": "Mosel",
                                 "command": "CaseStudyQ2.mos",
@@ -97,7 +98,7 @@
             "@acestatus": 1,
             "@base-step-wizard": 2,
             "@divider": 4,
-            "@document": 11,
+            "@document": 8,
             "@editorswitch": 1,
             "@fico.vdl.attributes-panel": 1,
             "@fico.vdl.palette-panel": 1,
@@ -105,9 +106,9 @@
             "@menu": 3,
             "@menuitem": 8,
             "@pane": 3,
-            "@session": 10,
+            "@session": 7,
             "@tab": 11,
-            "@undoManager": 11,
+            "@undoManager": 8,
             "@welcome": 1
         }
     },
@@ -123,8 +124,8 @@
             "@fullscreen": false,
             "@maximized": false,
             "@minimized": true,
-            "@position": "17:25",
-            "@size": "1440:794"
+            "@position": "-8:-8",
+            "@size": "1920:1013"
         }
     },
     "menus": {
@@ -138,8 +139,8 @@
     },
     "panecycle": {
         "json()": [
-            "tab10",
-            "tab9"
+            "tab9",
+            "tab10"
         ]
     },
     "panels": {
@@ -230,11 +231,11 @@
             "meta": {
                 "accessList": [
                     "tab9",
-                    "tab3",
-                    "tab6",
+                    "tab0",
                     "tab1",
                     "tab4",
-                    "tab0"
+                    "tab3",
+                    "tab6"
                 ]
             },
             "name": "pane0",
@@ -269,14 +270,36 @@
                         "tab1"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707669702368
-                        },
                         "filter": true,
                         "title": "CaseStudy.mos",
                         "tooltip": "/CaseStudy.mos",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 0,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 276,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 276,
+                                    "column": 0
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": 0
+                        },
+                        "hash": "232e8c681f2b5d34c2201e72903f5431441d37b9",
+                        "meta": {
+                            "timestamp": 1707909878769
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -289,14 +312,41 @@
                         "tab4"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707479722519
-                        },
                         "filter": true,
                         "title": "CaseStudyData_Aggregated_Testing.txt",
                         "tooltip": "/CaseStudyData_Aggregated_Testing.txt",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 17391.5,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 733,
+                                    "column": 0
+                                },
+                                "end": {
+                                    "row": 1174,
+                                    "column": 107
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 266,
+                                "state": "start",
+                                "mode": "ace/mode/text"
+                            },
+                            "cleansed": true
+                        },
+                        "hash": "eb08aa197cd536c3a097ff3aaed8bfac93960116",
+                        "meta": {
+                            "timestamp": 1707562742414
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -309,14 +359,41 @@
                         "tab3"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707661195826
-                        },
                         "filter": true,
                         "title": "CaseStudy_AggregatedData_CustomerOnly.txt",
                         "tooltip": "/Datasets/CaseStudy_AggregatedData_CustomerOnly.txt",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 1296,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 89,
+                                    "column": 61
+                                },
+                                "end": {
+                                    "row": 89,
+                                    "column": 61
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 151,
+                                "state": "start",
+                                "mode": "ace/mode/text"
+                            },
+                            "cleansed": true
+                        },
+                        "hash": "8640097d969744b136e7331051ea643f6fd2d529",
+                        "meta": {
+                            "timestamp": 1707909878817
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -329,14 +406,41 @@
                         "tab6"
                     ],
                     "document": {
-                        "changed": false,
-                        "meta": {
-                            "timestamp": 1707661195839
-                        },
                         "filter": true,
                         "title": "CaseStudy_FixedCandidates_WithAggregation.txt",
                         "tooltip": "/Datasets/CaseStudy_FixedCandidates_WithAggregation.txt",
-                        "ace": {}
+                        "ace": {
+                            "folds": [],
+                            "scrolltop": 2249.5,
+                            "scrollleft": 0,
+                            "selection": {
+                                "start": {
+                                    "row": 154,
+                                    "column": 11
+                                },
+                                "end": {
+                                    "row": 154,
+                                    "column": 11
+                                },
+                                "isBackwards": false
+                            },
+                            "options": {
+                                "guessTabSize": true,
+                                "useWrapMode": false,
+                                "wrapToView": true
+                            },
+                            "firstLineState": {
+                                "row": 19,
+                                "state": "start",
+                                "mode": "ace/mode/text"
+                            },
+                            "cleansed": true
+                        },
+                        "hash": "bb5b63ad960c96e8adc3ecabd4b504bf3c297747",
+                        "meta": {
+                            "timestamp": 1707909878817
+                        },
+                        "changed": false
                     },
                     "editorType": "ace",
                     "active": false
@@ -352,7 +456,7 @@
                     "document": {
                         "changed": false,
                         "meta": {
-                            "timestamp": 1707673817079
+                            "timestamp": 1707909878769
                         },
                         "filter": true,
                         "title": "CaseStudyQ2.mos",
@@ -370,7 +474,7 @@
     },
     "tree_selection": {
         "json()": [
-            "/Datasets/CaseStudy_AggregatedData_CustomerOnly.txt"
+            "/Datasets/CaseStudy_AggData_110_candidates.txt"
         ]
     },
     "welcome": {

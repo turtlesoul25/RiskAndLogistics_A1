@@ -1,4 +1,4 @@
-! Number of customers = postcode districts
+	! Number of customers = postcode districts
 nbCustomers: 15
 ! Number of candidate locations
 nbCandidates: 440
